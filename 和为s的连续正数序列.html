@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /**
+    * @param {number} target
+    * @return {number[][]}
+    */
+    var findContinuousSequence = function (target) {
+      let ary = [];
+      let sum = 0;
+      let length = (target / 2) + 1;
+
+      for (let i = 1; i < length; i++) {
+        for (let j = i; j < length; j++) {
+          sum += j;
+          if (sum > target) {
+            sum = 0;
+            break;
+          } else if (sum === target) {
+            let ary2 = [];
+            for (let k = i; k <= j; k++) {
+              ary2.push(k);
+            }
+            ary.push(ary2);
+            sum = 0;
+            break;
+          }
+        }
+
+      }
+      return ary;
+    };
+  </script>
+</body>
+
+</html>

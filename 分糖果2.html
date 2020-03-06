@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /**
+    * @param {number} candies
+    * @param {number} num_people
+    * @return {number[]}
+    */
+    var distributeCandies = function(candies, num_people) {
+      let arr = new Array(num_people).fill(0), k = 1;
+      while (candies > 0) {
+        let i = (k - 1) % num_people;
+        if (candies - k >= 0) {
+          arr[i] += k;
+          candies -= k;
+        } else {
+          arr[i] += candies;
+          candies = 0;
+        }
+        k++;
+      }
+      console.log(arr); 
+    };
+
+    distributeCandies(100, 30);
+  </script>
+</body>
+</html>
